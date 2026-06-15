@@ -5,25 +5,24 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color: transparent;}
 .W{
-  padding: 1.5rem 1rem; /* Added safety boundaries for phone display screens */
+  padding: 1.5rem 1rem; 
   font-family:var(--font-sans,system-ui,sans-serif);
   color:var(--color-text-primary,#111);
-  max-width: 480px; /* Profiles app layout into a neat native-app aesthetic centered on display */
+  max-width: 480px; 
   margin: 0 auto;
 }
 .app-title{font-size:22px;font-weight:600;margin-bottom:1rem;}
 
-/* Mobile horizontal touch scrolling tab adjustments */
 .tn{
   display:flex;
   gap:6px;
   margin-bottom:1.5rem;
   border-bottom:0.5px solid var(--color-border-tertiary,#e5e7eb);
   padding-bottom:1rem;
-  overflow-x: auto; /* Allows swiping navigation options on tight viewports */
+  overflow-x: auto; 
   white-space: nowrap;
 }
-.tn::-webkit-scrollbar { display: none; } /* Clear visually noisy bars */
+.tn::-webkit-scrollbar { display: none; } 
 
 .tb{padding:6px 16px;border-radius:8px;border:0.5px solid transparent;background:transparent;color:var(--color-text-secondary,#6b7280);font-size:14px;cursor:pointer;}
 .tb.a{background:var(--color-background-primary,#fff);border-color:var(--color-border-secondary,#d1d5db);color:var(--color-text-primary,#111);font-weight:500;}
@@ -32,12 +31,11 @@
 .sc{background:var(--color-background-secondary,#f3f4f6);border-radius:8px;padding:.7rem .4rem;text-align:center;}
 .sv{font-size:20px;font-weight:500;}.sl{font-size:11px;color:var(--color-text-secondary,#6b7280);margin-top:2px;}
 
-/* Adaptive row spacing wraps for multiple filter criteria buttons */
 .stabs{display:flex;gap:6px;margin-bottom:1rem;overflow-x: auto; white-space: nowrap; padding-bottom: 4px;}
 .stabs::-webkit-scrollbar { display: none; }
 .stb{padding:7px 14px;border-radius:8px;border:0.5px solid var(--color-border-secondary,#d1d5db);background:var(--color-background-primary,#fff);color:var(--color-text-secondary,#6b7280);font-size:13px;cursor:pointer;line-height:1.4;flex-shrink:0;}
 .stb.a{background:#EEEDFE;border-color:#534AB7;color:#3C3489;font-weight:500;}
-.sdesc{font-size:12px;color:var(--color-text-secondary,#6b7280);margin-bottom:1rem;padding:8px 12px;background:var(--color-background-secondary,#f3f4f6);border-left:2px solid #AFA9EC;}
+.sdesc" font-size:12px;color:var(--color-text-secondary,#6b7280);margin-bottom:1rem;padding:8px 12px;background:var(--color-background-secondary,#f3f4f6);border-left:2px solid #AFA9EC;}
 
 .orow{display:flex;gap:6px;margin-bottom:1.25rem;overflow-x: auto; white-space: nowrap; padding-bottom: 4px;}
 .orow::-webkit-scrollbar { display: none; }
@@ -52,7 +50,6 @@
 .ar{display:flex;align-items:center;gap:10px;justify-content:center;}
 .af{display:flex;flex-direction:column;align-items:center;gap:6px;}
 
-/* Inputs updated to 16px font baseline to cleanly prevent auto-zoom jumping on mobile Safari forms */
 .ai{width:62px;height:36px;text-align:center;font-size:16px;border:0.5px solid var(--color-border-secondary,#d1d5db);border-radius:8px;background:var(--color-background-primary,#fff);color:var(--color-text-primary,#111);-webkit-appearance:none;appearance:none;}
 .ai:focus{outline:none;box-shadow:0 0 0 2px #AFA9EC;border-color:#534AB7;}
 .al{width:66px;height:0;border-top:2px solid var(--color-text-primary,#111);}
@@ -108,6 +105,14 @@
 .gfl{height:100%;background:#534AB7;border-radius:4px;transition:width .4s;}
 .gnm{font-size:13px;font-weight:500;white-space:nowrap;min-width:56px;text-align:right;}
 .stitle{font-size:16px;font-weight:500;margin-bottom:.75rem;}
+
+/* Added custom layouts for new dynamic inputs */
+.fc-yn-row { display: flex; gap: 12px; width: 100%; max-width: 240px; margin-top: 4px; }
+.fc-yn-btn { flex: 1; padding: 12px; border: 1px solid var(--color-border-secondary,#d1d5db); border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; background: #fff; }
+.fc-yn-btn.y { border-color: #1D9E75; color: #1D9E75; }
+.fc-yn-btn.n { border-color: #D85A30; color: #D85A30; }
+.fc-mc-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; width: 100%; max-width: 280px; margin-top: 4px; }
+.fc-mc-btn { padding: 10px; border: 1px solid var(--color-border-secondary,#d1d5db); background: #fff; border-radius: 8px; font-size: 15px; font-weight: 500; cursor: pointer; text-align: center; }
 </style>
 
 <div class="W">
@@ -150,9 +155,9 @@
     <div class="ar">
       <span style="font-size:28px;color:var(--color-text-secondary,#6b7280);">=</span>
       <div class="af">
-        <input class="ai" id="f-n" type="number" inputmode="numeric" pattern="[0-9]*" placeholder="?" onkeydown="fK(event)" disabled/>
+        <input class="ai" id="f-n" type="text" inputmode="text" placeholder="?" onkeydown="fK(event)" disabled/>
         <div class="al"></div>
-        <input class="ai" id="f-d" type="number" inputmode="numeric" pattern="[0-9]*" placeholder="?" onkeydown="fK(event)" disabled/>
+        <input class="ai" id="f-d" type="text" inputmode="text" placeholder="?" onkeydown="fK(event)" disabled/>
       </div>
     </div>
     <div><div class="fb" id="f-fb"></div><div class="ht" id="f-ht"></div></div>
@@ -180,7 +185,7 @@
     <div class="mq" id="m-disp">—</div>
     <div class="ar">
       <span style="font-size:24px;color:var(--color-text-secondary,#6b7280);">=</span>
-      <input class="mi" id="m-in" type="number" inputmode="numeric" placeholder="?" onkeydown="mK(event)" disabled/>
+      <input class="mi" id="m-in" type="text" inputmode="text" placeholder="?" onkeydown="mK(event)" disabled/>
     </div>
     <div><div class="fb" id="m-fb"></div><div class="ht" id="m-ht"></div></div>
     <button class="btn" id="m-go" onclick="mStart()">start 60-sec drill</button>
@@ -203,12 +208,21 @@
     <div class="fct" id="fc-tmr"><span id="fc-tt">3</span></div>
     <div class="fcq" id="fc-q"></div>
     <div class="fca" id="fc-a"></div>
+    
     <input class="fci" id="fc-in" autocomplete="off" onkeydown="fcK(event)" placeholder="answer"/>
+    
+    <div class="fc-yn-row" id="fc-yn-zone" style="display: none;">
+      <button class="fc-yn-btn i" onclick="fcSubmitBtn('yes')">Yes</button>
+      <button class="fc-yn-btn n" onclick="fcSubmitBtn('no')">No</button>
+    </div>
+
+    <div class="fc-mc-grid" id="fc-mc-zone" style="display: none;"></div>
+
     <button class="btn" id="fc-go" onclick="fcStartSess()">start</button>
     <div style="font-size:12px;color:var(--color-text-secondary,#6b7280);" id="fc-tap"></div>
   </div>
   <div class="fcb" id="fc-btns" style="display:none;">
-    <button class="fcok" onclick="fcSub()">✓ submit</button>
+    <button class="fcok" id="fc-sub-master" onclick="fcSub()">✓ submit</button>
     <button class="btn2" id="fc-pau" onclick="fcPause()">pause</button>
     <button class="fcno" onclick="fcSkip()">✕ skip</button>
   </div>
@@ -460,7 +474,7 @@ function mReset(){clearInterval(M.tid);M.tot=0;M.cor=0;M.hist=[];document.getEle
 
 /* ═══ NUMBER FACTS with MASTERY ═══ */
 const PF=[2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59];
-const PC=Array.from({length:58},(_,i)=>i+2).map(n=>({q:`${n} ∈ P?`,a:PF.includes(n)?['yes','y']:['no','n'],id:'p'+n}));
+const PC=Array.from({length:58},(_,i)=>i+2).map(n=>({q:`${n} ∈ P?`,a:PF.includes(n)?['yes','y']:['no','n'],id:'p'+n,is_prime_card:true}));
 function sup(n){return String(n).replace(/[0-9]/g,d=>'⁰¹²³⁴⁵⁶⁷⁸⁹'[d]);}
 function mc(n){return Array.from({length:n===13?7:n===17?6:5},(_,i)=>({q:`${n}×${i+1}`,a:String(n*(i+1)),id:'m'+n+'x'+(i+1)}));}
 function pc(b,e){return Array.from({length:e},(_,i)=>({q:`${b}${sup(i+1)}`,a:String(b**(i+1)),id:'pw'+b+'e'+(i+1)}));}
@@ -468,7 +482,7 @@ function sc(){return Array.from({length:20},(_,i)=>({q:`${i+1}²`,a:String((i+1)
 const FCLISTS={
   dailyMix:{name:'daily mix',desc:'20 cards per session — unmastered first, reviews mixed in. Master cards (3× correct) to see new ones.',cards:[]},
   fullStack:{name:'full stack',desc:'All cards shuffled. No mastery filter.',cards:[]},
-  fracDec:{name:'decimals',desc:'7 fraction↔decimal pairs',cards:[
+  fracDec:{name:'decimals',desc:'7 fraction↔decimal pairs',is_decimals_list:true,cards:[
     {q:'1/2=?',a:'0.5',id:'fd1'},{q:'1/4=?',a:'0.25',id:'fd2'},{q:'3/4=?',a:'0.75',id:'fd3'},
     {q:'1/8=?',a:'0.125',id:'fd4'},{q:'3/8=?',a:'0.375',id:'fd5'},{q:'5/8=?',a:'0.625',id:'fd6'},{q:'7/8=?',a:'0.875',id:'fd7'},
     {q:'0.5=?',a:'1/2',id:'fd8'},{q:'0.25=?',a:'1/4',id:'fd9'},{q:'0.75=?',a:'3/4',id:'fd10'},
@@ -484,7 +498,12 @@ const FCLISTS={
   squares:{name:'n²',desc:'Squares 1²–20²',cards:sc()}
 };
 const ALL_FC=[];
-['fracDec','primes','mult13','mult17','mult19','pow2','pow3','pow5','squares'].forEach(k=>ALL_FC.push(...FCLISTS[k].cards));
+['fracDec','primes','mult13','mult17','mult19','pow2','pow3','pow5','squares'].forEach(k=>{
+  FCLISTS[k].cards.forEach(c => {
+    if(k==='fracDec') c.is_decimal_card = true;
+    ALL_FC.push(c);
+  });
+});
 FCLISTS.dailyMix.cards=ALL_FC;FCLISTS.fullStack.cards=ALL_FC;
 
 function isMastered(id){const m=DB.mastery[id];return m&&m.streak>=3;}
@@ -553,7 +572,7 @@ function fcTk(){
 }
 function fcPause(){
   if(!FC.active)return;
-  if(FC.paused){FC.paused=false;FC.deadline=Date.now()+FC.rem;document.getElementById('fc-pau').textContent='pause';fcTk();FC.tid=setInterval(fcTk,100);document.getElementById('fc-in').disabled=false;document.getElementById('fc-in').focus();}
+  if(FC.paused){FC.paused=false;FC.deadline=Date.now()+FC.rem;document.getElementById('fc-pau').textContent='pause';fcTk();FC.tid=setInterval(fcTk,100);document.getElementById('fc-in').disabled=false;if(document.getElementById('fc-in').style.display!=='none')document.getElementById('fc-in').focus();}
   else{FC.rem=Math.max(0,FC.deadline-Date.now());FC.paused=true;fcStopT();document.getElementById('fc-tt').textContent='⏸';document.getElementById('fc-tmr').className='fct pau';document.getElementById('fc-pau').textContent='resume';document.getElementById('fc-in').disabled=true;}
 }
 function fcNorm(v){return String(v||'').toLowerCase().replace(/\s+/g,'');}
@@ -579,6 +598,8 @@ function fcShowReady(){
   document.getElementById('fc-q').textContent='Ready?';
   document.getElementById('fc-a').textContent='';document.getElementById('fc-a').className='fca';
   document.getElementById('fc-in').value='';document.getElementById('fc-in').disabled=true;document.getElementById('fc-in').style.display='none';
+  document.getElementById('fc-yn-zone').style.display='none';
+  document.getElementById('fc-mc-zone').style.display='none';
   document.getElementById('fc-go').style.display='inline-block';
   document.getElementById('fc-btns').style.display='none';
   document.getElementById('fc-tap').textContent=dk.length+' cards · answer in 3 seconds';
@@ -590,9 +611,24 @@ function fcShowReady(){
 }
 function fcStartSess(){
   FC.deck=fcBuildDeck(FC.key);FC.idx=0;FC.hist=[];FC.started=true;
-  document.getElementById('fc-go').style.display='none';document.getElementById('fc-in').style.display='block';
+  document.getElementById('fc-go').style.display='none';
   fcRender();
 }
+
+/* Helper to generate 3 wrong multiple choice options safely */
+function fcGetDecOptions(correctAnswer) {
+  let pool = FCLISTS.fracDec.cards.map(c => Array.isArray(c.a)?c.a[0]:c.a);
+  pool = [...new Set(pool)].filter(v => v !== correctAnswer);
+  pool.sort(() => Math.random() - 0.5);
+  let choices = [correctAnswer, pool[0], pool[1], pool[2]];
+  return choices.sort(() => Math.random() - 0.5);
+}
+
+function fcSubmitBtn(val) {
+  if(!FC.active || FC.paused) return;
+  fcMark(fcIsOk(val, FC.deck[FC.idx].a));
+}
+
 function fcRender(){
   if(!FC.started){fcShowReady();return;}
   if(FC.idx>=FC.deck.length){
@@ -600,6 +636,9 @@ function fcRender(){
     document.getElementById('fc-q').textContent='Round complete!';
     document.getElementById('fc-a').className='fca sh';document.getElementById('fc-a').textContent=`${cor}/${tot} (${Math.round(cor/tot*100)}%)`;
     document.getElementById('fc-tap').style.display='none';document.getElementById('fc-btns').style.display='none';
+    document.getElementById('fc-in').style.display='none';
+    document.getElementById('fc-yn-zone').style.display='none';
+    document.getElementById('fc-mc-zone').style.display='none';
     document.getElementById('fc-pf').style.width='100%';
     document.getElementById('fc-dots').innerHTML=FC.hist.map(h=>`<div class="dot ${h}"></div>`).join('');
     logSess('facts',{cor,tot,list:FC.key,mastered:fcMasteryCount()});
@@ -611,13 +650,40 @@ function fcRender(){
   document.getElementById('fc-a').textContent='';document.getElementById('fc-a').className='fca';
   document.getElementById('fc-tap').textContent='answer in 3 seconds';document.getElementById('fc-tap').style.display='block';
   document.getElementById('fc-btns').style.display='flex';
-  document.getElementById('fc-in').value='';document.getElementById('fc-in').disabled=false;document.getElementById('fc-in').style.display='block';
   document.getElementById('fc-go').style.display='none';
+  
+  // Input Visibility Handlers
+  if (card.is_prime_card) {
+    document.getElementById('fc-in').style.display = 'none';
+    document.getElementById('fc-mc-zone').style.display = 'none';
+    document.getElementById('fc-yn-zone').style.display = 'flex';
+    document.getElementById('fc-sub-master').style.visibility = 'hidden'; // Hide redundant master submit
+  } else if (card.is_decimal_card) {
+    document.getElementById('fc-in').style.display = 'none';
+    document.getElementById('fc-yn-zone').style.display = 'none';
+    document.getElementById('fc-sub-master').style.visibility = 'hidden';
+    
+    const mcZone = document.getElementById('fc-mc-zone');
+    mcZone.style.display = 'grid';
+    const cleanCorrect = fcAnsTxt(card.a);
+    const options = fcGetDecOptions(cleanCorrect);
+    mcZone.innerHTML = options.map(opt => `
+      <button class="fc-mc-btn" onclick="fcSubmitBtn('${opt}')">${opt}</button>
+    `).join('');
+  } else {
+    document.getElementById('fc-yn-zone').style.display = 'none';
+    document.getElementById('fc-mc-zone').style.display = 'none';
+    document.getElementById('fc-in').style.display = 'block';
+    document.getElementById('fc-sub-master').style.visibility = 'visible';
+    document.getElementById('fc-in').value='';document.getElementById('fc-in').disabled=false;
+    document.getElementById('fc-in').focus();
+  }
+
   const pct=Math.round(FC.idx/FC.deck.length*100);
   document.getElementById('fc-pf').style.width=pct+'%';
   document.getElementById('fc-pt').textContent=`card ${FC.idx+1} of ${FC.deck.length} · ${fcMasteryCount()} mastered`;
   document.getElementById('fc-dots').innerHTML=FC.hist.slice(-30).map(h=>`<div class="dot ${h}"></div>`).join('');
-  document.getElementById('fc-in').focus();fcStartT();
+  fcStartT();
 }
 function fcSub(){
   if(!FC.active||FC.paused)return;
