@@ -1,35 +1,64 @@
 <h2 class="sr-only">Middle School Math Fluency</h2>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
 <style>
-*{box-sizing:border-box;margin:0;padding:0;}
-.W{padding:1.5rem 0;font-family:var(--font-sans,system-ui,sans-serif);color:var(--color-text-primary,#111);}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color: transparent;}
+.W{
+  padding: 1.5rem 1rem; /* Added safety boundaries for phone display screens */
+  font-family:var(--font-sans,system-ui,sans-serif);
+  color:var(--color-text-primary,#111);
+  max-width: 480px; /* Profiles app layout into a neat native-app aesthetic centered on display */
+  margin: 0 auto;
+}
 .app-title{font-size:22px;font-weight:600;margin-bottom:1rem;}
-.tn{display:flex;gap:6px;margin-bottom:1.5rem;border-bottom:0.5px solid var(--color-border-tertiary,#e5e7eb);padding-bottom:1rem;flex-wrap:wrap;}
+
+/* Mobile horizontal touch scrolling tab adjustments */
+.tn{
+  display:flex;
+  gap:6px;
+  margin-bottom:1.5rem;
+  border-bottom:0.5px solid var(--color-border-tertiary,#e5e7eb);
+  padding-bottom:1rem;
+  overflow-x: auto; /* Allows swiping navigation options on tight viewports */
+  white-space: nowrap;
+}
+.tn::-webkit-scrollbar { display: none; } /* Clear visually noisy bars */
+
 .tb{padding:6px 16px;border-radius:8px;border:0.5px solid transparent;background:transparent;color:var(--color-text-secondary,#6b7280);font-size:14px;cursor:pointer;}
 .tb.a{background:var(--color-background-primary,#fff);border-color:var(--color-border-secondary,#d1d5db);color:var(--color-text-primary,#111);font-weight:500;}
 .sec{display:none}.sec.a{display:block}
 .st{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:1.25rem;}
-.sc{background:var(--color-background-secondary,#f3f4f6);border-radius:8px;padding:.7rem .8rem;text-align:center;}
-.sv{font-size:22px;font-weight:500;}.sl{font-size:11px;color:var(--color-text-secondary,#6b7280);margin-top:2px;}
-.stabs{display:flex;gap:6px;margin-bottom:1rem;flex-wrap:wrap;}
-.stb{padding:7px 14px;border-radius:8px;border:0.5px solid var(--color-border-secondary,#d1d5db);background:var(--color-background-primary,#fff);color:var(--color-text-secondary,#6b7280);font-size:13px;cursor:pointer;line-height:1.4;}
+.sc{background:var(--color-background-secondary,#f3f4f6);border-radius:8px;padding:.7rem .4rem;text-align:center;}
+.sv{font-size:20px;font-weight:500;}.sl{font-size:11px;color:var(--color-text-secondary,#6b7280);margin-top:2px;}
+
+/* Adaptive row spacing wraps for multiple filter criteria buttons */
+.stabs{display:flex;gap:6px;margin-bottom:1rem;overflow-x: auto; white-space: nowrap; padding-bottom: 4px;}
+.stabs::-webkit-scrollbar { display: none; }
+.stb{padding:7px 14px;border-radius:8px;border:0.5px solid var(--color-border-secondary,#d1d5db);background:var(--color-background-primary,#fff);color:var(--color-text-secondary,#6b7280);font-size:13px;cursor:pointer;line-height:1.4;flex-shrink:0;}
 .stb.a{background:#EEEDFE;border-color:#534AB7;color:#3C3489;font-weight:500;}
 .sdesc{font-size:12px;color:var(--color-text-secondary,#6b7280);margin-bottom:1rem;padding:8px 12px;background:var(--color-background-secondary,#f3f4f6);border-left:2px solid #AFA9EC;}
-.orow{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1.25rem;}
-.ob{padding:5px 13px;border-radius:8px;border:0.5px solid var(--color-border-secondary,#d1d5db);background:var(--color-background-primary,#fff);color:var(--color-text-secondary,#6b7280);font-size:13px;cursor:pointer;}
+
+.orow{display:flex;gap:6px;margin-bottom:1.25rem;overflow-x: auto; white-space: nowrap; padding-bottom: 4px;}
+.orow::-webkit-scrollbar { display: none; }
+.ob{padding:5px 13px;border-radius:8px;border:0.5px solid var(--color-border-secondary,#d1d5db);background:var(--color-background-primary,#fff);color:var(--color-text-secondary,#6b7280);font-size:13px;cursor:pointer;flex-shrink:0;}
 .ob.a{background:#E1F5EE;border-color:#0F6E56;color:#085041;font-weight:500;}
-.qc{background:var(--color-background-primary,#fff);border:0.5px solid var(--color-border-tertiary,#e5e7eb);border-radius:12px;padding:1.5rem;margin-bottom:1rem;text-align:center;min-height:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.8rem;}
-.fd{display:flex;align-items:center;gap:1.5rem;justify-content:center;}
+
+.qc{background:var(--color-background-primary,#fff);border:0.5px solid var(--color-border-tertiary,#e5e7eb);border-radius:12px;padding:1.5rem 1rem;margin-bottom:1rem;text-align:center;min-height:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.8rem;}
+.fd{display:flex;align-items:center;gap:1.2rem;justify-content:center;}
 .fr{display:inline-flex;flex-direction:column;align-items:center;gap:3px;}
-.fn{font-size:30px;font-weight:500;line-height:1;}.fl{width:44px;height:0;border-top:2px solid var(--color-text-primary,#111);}
-.os{font-size:28px;color:var(--color-text-secondary,#6b7280);}
+.fn{font-size:28px;font-weight:500;line-height:1;}.fl{width:40px;height:0;border-top:2px solid var(--color-text-primary,#111);}
+.os{font-size:26px;color:var(--color-text-secondary,#6b7280);}
 .ar{display:flex;align-items:center;gap:10px;justify-content:center;}
 .af{display:flex;flex-direction:column;align-items:center;gap:6px;}
-.ai{width:62px;height:36px;text-align:center;font-size:18px;border:0.5px solid var(--color-border-secondary,#d1d5db);border-radius:8px;background:var(--color-background-primary,#fff);color:var(--color-text-primary,#111);}
+
+/* Inputs updated to 16px font baseline to cleanly prevent auto-zoom jumping on mobile Safari forms */
+.ai{width:62px;height:36px;text-align:center;font-size:16px;border:0.5px solid var(--color-border-secondary,#d1d5db);border-radius:8px;background:var(--color-background-primary,#fff);color:var(--color-text-primary,#111);-webkit-appearance:none;appearance:none;}
 .ai:focus{outline:none;box-shadow:0 0 0 2px #AFA9EC;border-color:#534AB7;}
 .al{width:66px;height:0;border-top:2px solid var(--color-text-primary,#111);}
-.btn{padding:8px 24px;border-radius:8px;border:none;background:#534AB7;color:#EEEDFE;font-size:15px;font-weight:500;cursor:pointer;}
+.btn{width:100%; max-width:240px; padding:10px 24px;border-radius:8px;border:none;background:#534AB7;color:#EEEDFE;font-size:15px;font-weight:500;cursor:pointer;}
 .btn:hover{background:#3C3489;}.btn:active{transform:scale(.98);}
-.btn2{padding:7px 18px;border-radius:8px;border:0.5px solid var(--color-border-secondary,#d1d5db);background:var(--color-background-secondary,#f3f4f6);color:var(--color-text-primary,#111);font-size:13px;cursor:pointer;}
+.btn2{padding:5px 12px;border-radius:8px;border:0.5px solid var(--color-border-secondary,#d1d5db);background:var(--color-background-secondary,#f3f4f6);color:var(--color-text-primary,#111);font-size:13px;cursor:pointer;}
 .btn2:hover{background:#e5e7eb;}
 .fb{font-size:15px;font-weight:500;min-height:22px;}.fb.ok{color:#0F6E56;}.fb.no{color:#993C1D;}
 .ht{font-size:13px;color:var(--color-text-secondary,#6b7280);margin-top:2px;}
@@ -39,11 +68,11 @@
 .sdots{display:flex;gap:6px;margin-bottom:.75rem;align-items:center;}
 .sd{width:16px;height:16px;border-radius:50%;background:#e5e7eb;border:1.5px solid #d1d5db;font-size:8px;display:flex;align-items:center;justify-content:center;}
 .sd.g{background:#1D9E75;border-color:#1D9E75;}.sd.b{background:#D85A30;border-color:#D85A30;}.sd.cur{background:#534AB7;border-color:#534AB7;}
-/* mixed */
-.mq{font-size:32px;font-weight:500;letter-spacing:.02em;}
-.mi{width:90px;height:40px;text-align:center;font-size:20px;border:0.5px solid var(--color-border-secondary,#d1d5db);border-radius:8px;background:var(--color-background-primary,#fff);color:var(--color-text-primary,#111);}
+
+.mq{font-size:26px;font-weight:500;letter-spacing:.02em;}
+.mi{width:90px;height:40px;text-align:center;font-size:16px;border:0.5px solid var(--color-border-secondary,#d1d5db);border-radius:8px;background:var(--color-background-primary,#fff);color:var(--color-text-primary,#111);-webkit-appearance:none;appearance:none;}
 .mi:focus{outline:none;box-shadow:0 0 0 2px #AFA9EC;border-color:#534AB7;}
-/* facts */
+
 .ltabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1rem;}
 .lb{padding:5px 12px;border-radius:8px;border:0.5px solid var(--color-border-secondary,#d1d5db);background:var(--color-background-primary,#fff);color:var(--color-text-secondary,#6b7280);font-size:12px;cursor:pointer;}
 .lb.a{background:#EEEDFE;border-color:#534AB7;color:#3C3489;font-weight:500;}
@@ -55,7 +84,7 @@
 .fcc{background:var(--color-background-primary,#fff);border:0.5px solid #e5e7eb;border-radius:12px;padding:2rem 1.5rem;margin-bottom:1rem;text-align:center;min-height:170px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;}
 .fcq{font-size:22px;font-weight:500;}
 .fca{font-size:16px;color:var(--color-text-secondary,#6b7280);display:none;}.fca.sh{display:block;}
-.fci{width:min(200px,80%);height:40px;text-align:center;font-size:18px;border:0.5px solid var(--color-border-secondary,#d1d5db);border-radius:8px;background:var(--color-background-primary,#fff);color:var(--color-text-primary,#111);}
+.fci{width:min(200px,80%);height:40px;text-align:center;font-size:16px;border:0.5px solid var(--color-border-secondary,#d1d5db);border-radius:8px;background:var(--color-background-primary,#fff);color:var(--color-text-primary,#111);-webkit-appearance:none;appearance:none;}
 .fci:focus{outline:none;box-shadow:0 0 0 2px #AFA9EC;border-color:#534AB7;}
 .fct{position:relative;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(#534AB7 360deg,#e5e7eb 0deg);box-shadow:0 0 0 1px rgba(0,0,0,.04);}
 .fct::before{content:"";position:absolute;width:38px;height:38px;border-radius:50%;background:var(--color-background-primary,#fff);}
@@ -66,11 +95,10 @@
 .fcb{display:flex;gap:8px;justify-content:center;}
 .fcok{padding:7px 18px;border-radius:8px;border:none;background:#1D9E75;color:#E1F5EE;font-size:14px;font-weight:500;cursor:pointer;}
 .fcno{padding:7px 18px;border-radius:8px;border:none;background:#D85A30;color:#FAECE7;font-size:14px;font-weight:500;cursor:pointer;}
-/* mastery badge */
 .mbadge{display:inline-block;padding:1px 6px;border-radius:4px;font-size:10px;font-weight:500;margin-left:4px;}
 .mbadge.m{background:#E1F5EE;color:#0F6E56;}.mbadge.l{background:#FEF3CD;color:#856404;}
-/* progress table */
-.ptbl{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:1rem;}
+.tbl-w{width:100%;overflow-x:auto;margin-bottom:1rem;border-radius:8px;border:0.5px solid #e5e7eb;}
+.ptbl{width:100%;border-collapse:collapse;font-size:13px;}
 .ptbl th{text-align:left;padding:8px 10px;background:var(--color-background-secondary,#f3f4f6);border-bottom:1px solid #e5e7eb;color:var(--color-text-secondary,#6b7280);font-weight:500;white-space:nowrap;}
 .ptbl td{padding:7px 10px;border-bottom:0.5px solid #f3f4f6;vertical-align:top;}
 .ptbl .g{color:#0F6E56;font-weight:500;}.ptbl .b{color:#993C1D;}.ptbl .d{color:var(--color-text-secondary,#6b7280);}
@@ -91,7 +119,6 @@
   <button class="tb" onclick="showTab('prog')">progress</button>
 </div>
 
-<!-- ═══ FRACTION DRILL ═══ -->
 <div id="sec-frac" class="sec a">
   <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;">
     <span style="font-size:18px;font-weight:500;">Fraction Drill</span>
@@ -123,9 +150,9 @@
     <div class="ar">
       <span style="font-size:28px;color:var(--color-text-secondary,#6b7280);">=</span>
       <div class="af">
-        <input class="ai" id="f-n" type="number" placeholder="?" onkeydown="fK(event)" disabled/>
+        <input class="ai" id="f-n" type="number" inputmode="numeric" pattern="[0-9]*" placeholder="?" onkeydown="fK(event)" disabled/>
         <div class="al"></div>
-        <input class="ai" id="f-d" type="number" placeholder="?" onkeydown="fK(event)" disabled/>
+        <input class="ai" id="f-d" type="number" inputmode="numeric" pattern="[0-9]*" placeholder="?" onkeydown="fK(event)" disabled/>
       </div>
     </div>
     <div><div class="fb" id="f-fb"></div><div class="ht" id="f-ht"></div></div>
@@ -134,7 +161,6 @@
   <div class="prog" id="f-pr"></div>
 </div>
 
-<!-- ═══ MIXED TERM DRILL ═══ -->
 <div id="sec-mix" class="sec">
   <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;">
     <span style="font-size:18px;font-weight:500;">Mixed Term Drill</span>
@@ -154,7 +180,7 @@
     <div class="mq" id="m-disp">—</div>
     <div class="ar">
       <span style="font-size:24px;color:var(--color-text-secondary,#6b7280);">=</span>
-      <input class="mi" id="m-in" type="number" placeholder="?" onkeydown="mK(event)" disabled/>
+      <input class="mi" id="m-in" type="number" inputmode="numeric" placeholder="?" onkeydown="mK(event)" disabled/>
     </div>
     <div><div class="fb" id="m-fb"></div><div class="ht" id="m-ht"></div></div>
     <button class="btn" id="m-go" onclick="mStart()">start 60-sec drill</button>
@@ -162,7 +188,6 @@
   <div class="prog" id="m-pr"></div>
 </div>
 
-<!-- ═══ NUMBER FACTS ═══ -->
 <div id="sec-facts" class="sec">
   <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;">
     <span style="font-size:18px;font-weight:500;">Number Facts</span>
@@ -190,7 +215,6 @@
   <div class="prog" id="fc-dots"></div>
 </div>
 
-<!-- ═══ PROGRESS ═══ -->
 <div id="sec-prog" class="sec">
   <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;">
     <span style="font-size:18px;font-weight:500;">Progress History</span>
@@ -200,7 +224,7 @@
     Fraction goal: 20 correct / 2 min / 100% · Mixed goal: 20 correct / 60s / 100%
   </div>
   <p class="stitle">Session Log</p>
-  <div style="overflow-x:auto;">
+  <div class="tbl-w">
     <table class="ptbl"><thead><tr><th>date</th><th>type</th><th>result</th><th>details</th></tr></thead>
     <tbody id="p-body"><tr><td colspan="4" class="d">No sessions yet.</td></tr></tbody></table>
   </div>
@@ -263,7 +287,6 @@ function fEnd(){
   let msg=`${F.cor}/${F.tot} correct (${a}%)`;
   if(perfect){
     msg='🎯 Perfect! ';
-    // auto-level-up
     if(F.stage>=1&&F.stage<3){
       F.stage++;
       [0,1,2,3].forEach(x=>{const e=document.getElementById('fs'+x);if(e)e.classList.remove('a');});
@@ -271,7 +294,6 @@ function fEnd(){
       document.getElementById('f-desc').textContent=FST[F.stage].d;
       msg+='Moving to stage '+F.stage+'!';
     } else if(F.stage===3){
-      // move to mixed
       F.stage=0;
       [0,1,2,3].forEach(x=>{const e=document.getElementById('fs'+x);if(e)e.classList.remove('a');});
       document.getElementById('fs0').classList.add('a');
@@ -333,7 +355,7 @@ function fNext(){
 function fChk(){
   if(F.ans||!F.on)return;if(fLeft()<=0){fEnd();return;}
   const un=parseInt(document.getElementById('f-n').value),ud=parseInt(document.getElementById('f-d').value);
-  if(isNaN(un)||isNaN(ud)||ud===0)return;// silent — let them keep typing
+  if(isNaN(un)||isNaN(ud)||ud===0)return;
   const simp=gcd(Math.abs(un),Math.abs(ud))===1;
   const ok=simp&&un===F.q.ans.n&&ud===F.q.ans.d;
   F.ans=true;F.tot++;if(ok)F.cor++;
@@ -465,36 +487,29 @@ const ALL_FC=[];
 ['fracDec','primes','mult13','mult17','mult19','pow2','pow3','pow5','squares'].forEach(k=>ALL_FC.push(...FCLISTS[k].cards));
 FCLISTS.dailyMix.cards=ALL_FC;FCLISTS.fullStack.cards=ALL_FC;
 
-// Mastery: DB.mastery[card.id] = {streak:N, last:dateStr}
-// mastered = streak >= 3
 function isMastered(id){const m=DB.mastery[id];return m&&m.streak>=3;}
 function needsReview(id){
   const m=DB.mastery[id];if(!m||m.streak<3)return false;
   const daysSince=Math.floor((Date.now()-new Date(m.last).getTime())/(86400000));
-  return daysSince>=3;// review every 3 days
+  return daysSince>=3;
 }
 function fcBuildDeck(key){
   if(key==='fullStack')return[...ALL_FC].sort(()=>Math.random()-0.5);
   if(key==='dailyMix'){
-    // Priority: unmastered cards first, then due-for-review, then random mastered to fill
     const unmastered=ALL_FC.filter(c=>!isMastered(c.id));
     const review=ALL_FC.filter(c=>needsReview(c.id));
     const pool=[];
-    // Add unmastered (up to 20)
     const shuf_un=[...unmastered].sort(()=>Math.random()-0.5);
     pool.push(...shuf_un.slice(0,20));
-    // If room, add reviews
     if(pool.length<20){
       const shuf_rv=[...review].sort(()=>Math.random()-0.5);
       pool.push(...shuf_rv.slice(0,20-pool.length));
     }
-    // If all mastered and no reviews due, pick 20 random for maintenance
     if(pool.length===0){
       return[...ALL_FC].sort(()=>Math.random()-0.5).slice(0,20);
     }
     return pool.sort(()=>Math.random()-0.5).slice(0,20);
   }
-  // Per-list: cap at 20 too
   const cards=FCLISTS[key].cards;
   const un=cards.filter(c=>!isMastered(c.id));
   const rv=cards.filter(c=>needsReview(c.id));
@@ -509,7 +524,7 @@ function fcMasteryCount(){return ALL_FC.filter(c=>isMastered(c.id)).length;}
 function fcBuildTabs(){
   const c=document.getElementById('fc-tabs');c.innerHTML='';
   Object.keys(FCLISTS).forEach(k=>{
-    if(k==='fullStack')return;// button handled separately
+    if(k==='fullStack')return;
     const b=document.createElement('button');b.className='lb'+(k===FC.key?' a':'');
     let label=FCLISTS[k].name;
     if(k!=='dailyMix'){
@@ -619,10 +634,9 @@ function fcMark(ok){
   if(!FC.active)return;FC.active=false;FC.paused=false;fcStopT();
   FC.hist.push(ok?'c':'w');
   const card=FC.deck[FC.idx];
-  // Update mastery
   if(!DB.mastery[card.id])DB.mastery[card.id]={streak:0,last:tdy()};
   if(ok){DB.mastery[card.id].streak++;DB.mastery[card.id].last=tdy();}
-  else{DB.mastery[card.id].streak=0;DB.mastery[card.id].last=tdy();FC.deck.push({...card});}// push wrong to back
+  else{DB.mastery[card.id].streak=0;DB.mastery[card.id].last=tdy();FC.deck.push({...card});}
   saveDB();
   document.getElementById('fc-a').className='fca sh';
   document.getElementById('fc-a').textContent=ok?'correct ✓':'answer: '+fcAnsTxt(card.a);
@@ -651,7 +665,6 @@ function renderProg(){
     }
     return`<tr><td style="white-space:nowrap;font-size:12px;color:var(--color-text-secondary,#6b7280);">${r.ts}</td><td>${r.type}</td><td>${res}</td><td style="font-size:12px;color:var(--color-text-secondary,#6b7280);">${det}</td></tr>`;
   }).join('');
-  // mastery summary
   const lists=['fracDec','primes','mult13','mult17','mult19','pow2','pow3','pow5','squares'];
   const html=lists.map(k=>{
     const cards=FCLISTS[k].cards;
